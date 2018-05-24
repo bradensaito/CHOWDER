@@ -8,6 +8,9 @@
     padding: 20px;
 }
 
+.center{
+    text-align: center;
+}
 
 .col-25 {
     float: left;

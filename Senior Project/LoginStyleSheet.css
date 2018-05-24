@@ -50,7 +50,13 @@ button {
 
 /* Add padding to containers */
 .container {
-    padding: 16px;
+    padding: 16px; //16
+}
+
+.center {
+    text-align: center;
+    width: 100%;
+    margin-top: 6px;
 }
 
 /* The "Forgot password" text */
