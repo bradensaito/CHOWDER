@@ -24,17 +24,17 @@ include_once 'testLogin.php';
         <form>
             <div class="row">
                 <div class="col-25">
-                    <p>HI</p>
+                    <p>Dig</p>
                 </div>
                 <div class="col-75">
-                    <select name="Event">
+                    <select name="Dig">
                         
 
                         <?php
-                        $sql = mysqli_query($mysqli, "SELECT id FROM accounts");
-                        while($row = $sql->fetch_assoc())
+                        $digs = mysqli_query($mysqli, "SELECT digdate, location FROM digs");
+                        while($row = $digs->fetch_assoc())
                         {
-                            echo "<option value=\"event1\">" . $row['id'] . "</option>";
+                            echo "<option value=\"dig1\">" . $row['digdate'] . " " . $row['location'] ."</option>";
                         }
                         ?>
                         
@@ -48,9 +48,7 @@ include_once 'testLogin.php';
                 </div>
                 <div class="col-75">
                     <select name="Transect">
-                        <option value="t1">Transect 1</option>
-                        <option value="t2">Transect 2</option>
-                        <option value="t3">Transect 3</option>
+                        
                     </select>
                 </div>
             </div>
