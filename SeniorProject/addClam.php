@@ -18,7 +18,6 @@ echo "alert('$committheclam');\n";
 echo "window.location=('SPPage1.php');\n";
 echo "</script>";
 
-//header("Location: ../SeniorProject/SPPage1.php");
 exit();
 
 ?>

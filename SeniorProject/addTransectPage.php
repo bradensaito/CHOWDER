@@ -12,34 +12,6 @@
 </head>
 
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
-<script src="jquery.min.js"></script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#dig").change(function(){
-        var digID = $(this).val();
-        if(digID){
-            //alert(digID);
-            $.ajax({
-                type:'POST',
-                url:'ajax_dig.php',
-                data:'mid='+ digID,
-                success:function(html){
-                    $("#transect").html(html);
-                    //alert("we did it");
-                },error: function(XMLHttpRequest, textStatus, errorThrown) {
-    alert(textStatus);
-}
-            });
-        }else{
-            $("#transect").html('<option value=""> Select dig2 first </option>');
-        }
-    });
-});
-</script>
-
 <?php
 include_once 'testLogin.php';
 $digs = mysqli_query($mysqli, "SELECT * FROM digs");
@@ -56,7 +28,7 @@ $digs = mysqli_query($mysqli, "SELECT * FROM digs");
 
     <div class="container">
 
-        <form class="clam-form" action="addClam.php" method="POST">
+        <form class="transect-form" action="addTransect.php" method="POST">
             <div class="row">
                 <div class="col-25">
                     <p>Dig</p>
@@ -84,34 +56,25 @@ $digs = mysqli_query($mysqli, "SELECT * FROM digs");
             </div>
             <div class="row">
                 <div class="col-25">
-                    <p>Transect</p>
+                    <p>Starting Latitude</p>
                 </div>
                 <div class="col-75">
-                    <select name="transect" id="transect">
-                        <option value="">Select dig first</option>
-                    </select>
-
-                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addDig">Add Transect</button>
+                    <input type="number" id="latitude" name="latitude" placeholder="Latitude">
 
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-25">
-                    <p>Section</p>
+                    <p>Starting Longitude</p>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="section" name="section" placeholder="Section Number">
-                    </select>
+                    <input type="number" id="longitude" name="longitude" placeholder="Longitude">
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <p>Size</p>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="size" name="size" placeholder="Size">
-                </div>
-            </div>
+            
+          
             <div class="row">
                 <input type="submit" value="Submit">
             </div>
