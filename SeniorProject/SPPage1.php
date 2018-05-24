@@ -1,5 +1,9 @@
-﻿
+﻿<!DOCTYPE html>
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+
+
 <head>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="StyleSheet1.css">
@@ -7,9 +11,40 @@
     <title>CHOWDER</title>
 </head>
 
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
+<script src="jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#dig").change(function(){
+        var digID = $(this).val();
+        if(digID){
+            //alert(digID);
+            $.ajax({
+                type:'POST',
+                url:'ajax_dig.php',
+                data:'mid='+ digID,
+                success:function(html){
+                    $("#transect").html(html);
+                    //alert("we did it");
+                },error: function(XMLHttpRequest, textStatus, errorThrown) {
+    alert(textStatus);
+}
+            });
+        }else{
+            $("#transect").html('<option value=""> Select dig2 first </option>');
+        }
+    });
+});
+</script>
+
 <?php
 include_once 'testLogin.php';
+$digs = mysqli_query($mysqli, "SELECT * FROM digs");
 ?>
+
 
 
 <body>
@@ -21,20 +56,21 @@ include_once 'testLogin.php';
 
     <div class="container">
 
-        <form>
+        <form class="clam-form" action="addClam.php" method="POST">
             <div class="row">
                 <div class="col-25">
                     <p>Dig</p>
                 </div>
                 <div class="col-75">
-                    <select name="Dig">
+                    <select name="dig" id="dig">
                         
+                        <option selected value = "dig0">Select Dig</option>
 
                         <?php
-                        $digs = mysqli_query($mysqli, "SELECT digdate, location FROM digs");
+                        
                         while($row = $digs->fetch_assoc())
                         {
-                            echo "<option value=\"dig1\">" . $row['digdate'] . " " . $row['location'] ."</option>";
+                            echo '<option value="' . $row['id'].'" >' .$row['digdate'] .'</option>';
                         }
                         ?>
                         
@@ -47,8 +83,8 @@ include_once 'testLogin.php';
                     <p>Transect</p>
                 </div>
                 <div class="col-75">
-                    <select name="Transect">
-                        
+                    <select name="transect" id="transect">
+                        <option value="">Select dig first</option>
                     </select>
                 </div>
             </div>
@@ -57,10 +93,7 @@ include_once 'testLogin.php';
                     <p>Section</p>
                 </div>
                 <div class="col-75">
-                    <select name="Event">
-                        <option value="s1">Section 1</option>
-                        <option value="s2">Section 2</option>
-                        <option value="s3">Section 3</option>
+                    <input type="text" id="section" name="section" placeholder="Section Number">
                     </select>
                 </div>
             </div>
