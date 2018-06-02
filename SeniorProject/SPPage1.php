@@ -1,3 +1,8 @@
+<?php
+   include "authenticate.php";
+   permissionAuth(4);
+   $digs = mysqli_query($mysqli, "SELECT * FROM digs");
+?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -39,11 +44,6 @@ $(document).ready(function(){
     });
 });
 </script>
-
-<?php
-include_once 'testLogin.php';
-$digs = mysqli_query($mysqli, "SELECT * FROM digs");
-?>
 
 
 

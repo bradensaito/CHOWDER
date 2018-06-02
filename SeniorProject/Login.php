@@ -1,10 +1,5 @@
 <?php
-   define('DB_NAME', 'chowder_test1');
-   define('DB_USER', 'chowder_test1');
-   define('DB_PASSWORD', 'capstone');
-   define('DB_HOST', 'db4free.net:3306');
-   
-   $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+   include "authenticate.php";
    if (isset($_POST['uname'])) {
       $username = stripslashes($_REQUEST['uname']);
       $username = mysqli_real_escape_string($mysqli,$username);
@@ -14,7 +9,7 @@
       $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
       $rows = mysqli_num_rows($result);
       if($rows==1){
-         $_SESSION['uname'] = $username;
+         $_SESSION['username'] = $username;
          $_SESSION['permissions'] = mysqli_fetch_assoc($result)['permissions'];
          if ($_SESSION["permissions"] == 4) {
             header("Location: SPPage1.php");
