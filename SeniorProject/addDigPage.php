@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+<?php
+   include "authenticate.php";
+   $permission_level = 4;
+   permissionAuth($permission_level);
+   $digs = mysqli_query($mysqli, "SELECT * FROM digs");
+?>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,11 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHOWDER</title>
 </head>
-
-
-<?php
-include_once 'testLogin.php';
-?>
 
 
 

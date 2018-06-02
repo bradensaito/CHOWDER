@@ -13,7 +13,7 @@
          exit();
       }
       if ($level > $_SESSION["permissions"]) {
-         header("Location: SPLoginPage.html");
+         header("Location: " . $_SERVER['HTTP_REFERER']);
          exit();
       }
    }
