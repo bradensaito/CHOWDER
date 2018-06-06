@@ -47,6 +47,31 @@ $(document).ready(function(){
 </script>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#transect").change(function(){
+        var transectID = $(this).val();
+        if(transectID){
+            //alert(digID);
+            $.ajax({
+                type:'POST',
+                url:'ajax_transect.php',
+                data:'mid='+ transectID,
+                success:function(html){
+                    $("#section").html(html);
+                    //alert("we did it");
+                },error: function(XMLHttpRequest, textStatus, errorThrown) {
+    alert(textStatus);
+}
+            });
+        }else{
+            $("#section").html('<option value=""> Select transect first </option>');
+        }
+    });
+});
+</script>
+
+
 
 <body>
     
@@ -92,7 +117,7 @@ $(document).ready(function(){
                         <option value="">Select dig first</option>
                     </select>
 
-                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addDig">Add Transect</button>
+                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addTransect">Add Transect</button>
 
                 </div>
             </div>
@@ -101,8 +126,12 @@ $(document).ready(function(){
                     <p>Section</p>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="section" name="section" placeholder="Section Number">
+                    <select name="section" id="section">
+						<option value="">Select transect first</option>
                     </select>
+
+					<button type="button" onclick="location.href = 'addSectionPage.php';" id="addSection">Add Section</button>
+
                 </div>
             </div>
             <div class="row">
