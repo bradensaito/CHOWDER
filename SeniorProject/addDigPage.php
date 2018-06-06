@@ -17,14 +17,15 @@
     <title>CHOWDER</title>
 </head>
 
-
+<?php
+	include_once 'testLogin.php';
+?>
 
 <body>
     
     <div class="center">
         <h1>CHOWDER</h1>
     </div>
-
 
     <div class="container">
 
@@ -53,6 +54,7 @@
             </div>
 
         </form>
+		<button type="button" class="cancelbtn" onclick="location.href = 'SPPage1.php';">Cancel</button>
     </div>
 
 </body>

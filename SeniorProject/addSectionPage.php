@@ -128,9 +128,13 @@ $(document).ready(function(){
             <div class="row">
                 <input type="submit" value="Submit">
             </div>
+            <div class="row">
+                <button type="button" class="cancelbtn" onclick="location.href = 'SPPage1.php';">Cancel</button>
+            </div>
 
         </form>
     </div>
+
 
 </body>
 </html>
