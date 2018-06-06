@@ -2,13 +2,13 @@
 
 include_once 'testLogin.php';
 
-$dig = mysqli_real_escape_string($mysqli, $_POST['section']);
+$transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
 
-$query = $mysqli->query("SELECT * FROM sections");
+$query = $mysqli->query("SELECT * FROM sections WHERE tr_id = " .$_POST['transect']);
 $rowCount = $query->num_rows;
 $rowCount++;
 
-$in = "INSERT INTO sections (id, transect_id) VALUES ('$rowCount', '$dig', '1', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '$latitude', NULL, '$longitude', NULL);";
+$in = "INSERT INTO sections (id, transect_id) VALUES ('$rowCount', '$transect');";
 
 mysqli_query($mysqli, $in);
 

@@ -22,6 +22,7 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="jquery.min.js"></script>
 
+<!--jquery script for updating the transect field-->
 <script type="text/javascript">
 $(document).ready(function(){
     $("#dig").change(function(){
@@ -46,7 +47,7 @@ $(document).ready(function(){
 });
 </script>
 
-
+<!--jquery script for updating the section field-->
 <script type="text/javascript">
 $(document).ready(function(){
     $("#transect").change(function(){
@@ -79,7 +80,7 @@ $(document).ready(function(){
         <h1>CHOWDER</h1>
     </div>
 
-
+	<!--main container-->
     <div class="container">
 
         <form class="clam-form" action="addClam.php" method="POST">
@@ -92,8 +93,8 @@ $(document).ready(function(){
                         
                         <option selected value = "dig0">Select Dig</option>
 
-                        <?php
-                        
+						<!--php script to populate the dig dropdown-->
+                        <?php                        
                         while($row = $digs->fetch_assoc())
                         {
                             echo '<option value="' . $row['id'].'" >' .$row['digdate'] .'</option>';
