@@ -11,8 +11,19 @@
       if($rows==1){
          $_SESSION['username'] = $username;
          $_SESSION['permissions'] = mysqli_fetch_assoc($result)['permissions'];
-         if ($_SESSION["permissions"] == 4) {
-            header("Location: SPPage1.php");
+         switch ($_SESSION["permissions"]) {
+            case 1:
+               header("Location: SPPage1.php");
+               break;
+            case 2:
+               header("Location: SPPage1.php");
+               break;
+            case 3:
+               header("Location: SPPage1.php");
+               break;
+            case 4:
+               header("Location: SPPage1.php");
+               break;
          }
       }else{
          echo "<div class='form'>
