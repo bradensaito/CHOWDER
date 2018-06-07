@@ -15,6 +15,6 @@
       $id = mysqli_num_rows(mysqli_query($mysqli, "SELECT id FROM `accounts`")) + 1;
       $update = "INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `permissions`, `pass`, `username`) VALUES ('$id', '$firstname', '$lastname', '$permissions', '$password', '$username');";
       mysqli_query($mysqli, $update);
-      header("Location: SPLoginPage.html");
+      header("Location: index.html");
    }
 ?>
