@@ -17,9 +17,6 @@
     <title>CHOWDER</title>
 </head>
 
-<?php
-	include_once 'testLogin.php';
-?>
 
 <body>
     
@@ -31,30 +28,36 @@
 
         <form class="dig-form" action="addDig.php" method="POST">
             <div class="row">
-                <div class="col-25">
+                <div class="center">
                     <p>Date</p>
-                </div>
-                <div class="col-75">
-                    <input type="date" id="date" name="date">
-
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="center">
+                    <input type="date" id="date" name="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
                     <p>Location</p>
                 </div>
-                <div class="col-75">
+            </div>
+            <div class="row">
+                <div class="center">
                     <input type="text" id="location" name="location" placeholder="Location">
-
                 </div>
             </div>
           
             <div class="row">
-                <input type="submit" value="Submit">
+                <div class="center">
+                    <input type="submit" value="Submit">
+                </div>
             </div>
 
         </form>
+        <div class="center">
 		<button type="button" class="cancelbtn" onclick="location.href = 'SPPage1.php';">Cancel</button>
+        </div>
     </div>
 
 </body>

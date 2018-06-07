@@ -1,4 +1,4 @@
-﻿body {
+body {
     background-color: powderblue;
 }
 
@@ -51,5 +51,5 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    float: left;
+    float: center;
 }

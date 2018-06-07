@@ -1,5 +1,5 @@
-﻿<?php
-   include "authenticate.php";
+<?php
+   include_once "authenticate.php";
    $permission_level = 4;
    permissionAuth($permission_level);
    $transects = mysqli_query($mysqli, "SELECT * FROM sections");

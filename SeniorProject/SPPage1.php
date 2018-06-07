@@ -85,10 +85,12 @@ $(document).ready(function(){
 
         <form class="clam-form" action="addClam.php" method="POST">
             <div class="row">
-                <div class="col-25">
+                <div class="center">
                     <p>Dig</p>
                 </div>
-                <div class="col-75">
+            </div>
+            <div class="row">
+                <div class="center">
                     <select name="dig" id="dig">
                         
                         <option selected value = "dig0">Select Dig</option>
@@ -103,48 +105,65 @@ $(document).ready(function(){
                         
 
                     </select>
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
                
                     <button type="button" onclick="location.href = 'addDigPage.php';" id="addDig">Add Dig</button>
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="center">
                     <p>Transect</p>
-                </div>
-                <div class="col-75">
-                    <select name="transect" id="transect">
-                        <option value="">Select dig first</option>
-                    </select>
-
-                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addTransect">Add Transect</button>
-
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="center">
+                    <select name="transect" id="transect">
+                        <option value="">Select dig first</option>
+                    </select>
+                </div>
+            <div class="row">
+                <div class="center">
+                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addTransect">Start Transect</button>
+                    <button type="button" onclick="location.href = 'endTransectPage.php';" id="addTransect">End Transect</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
                     <p>Section</p>
                 </div>
-                <div class="col-75">
+            </div>
+            <div class="row">
+                <div class="center">
                     <select name="section" id="section">
 						<option value="">Select transect first</option>
                     </select>
-
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
 					<button type="button" onclick="location.href = 'addSectionPage.php';" id="addSection">Add Section</button>
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-25">
+                <div class="center">
                     <p>Size</p>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="size" name="size" placeholder="Size">
                 </div>
             </div>
             <div class="row">
-                <input type="submit" value="Submit">
+                <div class="center">
+                    <input type="text" id="size" name="size" placeholder="Size (mm)">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="center">
+                    <input type="submit" value="Submit">
+                </div>
             </div>
 
         </form>
