@@ -1,6 +1,6 @@
 <?php
     
-    include_once 'testLogin.php';
+    include_once "authenticate.php";
     
     $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
     $latitude = mysqli_real_escape_string($mysqli, $_POST['curLat']);
