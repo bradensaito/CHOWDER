@@ -36,8 +36,7 @@ create table transects (
 	endlong double,
     orientation char(13) not null,
 	primary key (id, dig_id),
-	foreign key (dig_id) references digs(id),
-	foreign key (group_id) references `groups`(id)
+	foreign key (dig_id) references digs(id)
 );
 
 create table sections (
