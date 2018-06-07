@@ -1,6 +1,6 @@
 <?php
    include "authenticate.php";
-   $permission_level = 1;
+   $permission_level = 4;
    permissionAuth($permission_level);
    $digs = mysqli_query($mysqli, "SELECT * FROM digs");
 ?>
@@ -125,6 +125,7 @@ $(document).ready(function(){
                         <option value="">Select dig first</option>
                     </select>
                 </div>
+            </div>
             <div class="row">
                 <div class="center">
                     <button type="button" onclick="location.href = 'addTransectPage.php';" id="addTransect">Start Transect</button>

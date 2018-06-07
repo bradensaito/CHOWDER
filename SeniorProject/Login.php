@@ -13,13 +13,13 @@
          $_SESSION['permissions'] = mysqli_fetch_assoc($result)['permissions'];
          switch ($_SESSION["permissions"]) {
             case 1:
-               header("Location: SPPage1.php");
+               header("Location: SPLevel1.php");
                break;
             case 2:
-               header("Location: SPPage1.php");
+               header("Location: SPLevel2.php");
                break;
             case 3:
-               header("Location: SPPage1.php");
+               header("Location: SPLevel3.php");
                break;
             case 4:
                header("Location: SPPage1.php");
@@ -31,6 +31,6 @@
          <br/>Click here to <a href='login.php'>Login</a></div>";
       }
    } else {
-      header("Location: SPLoginPage.html");
+      header("Location: index.html");
    }
 ?>

@@ -43,6 +43,10 @@
                   if (2 >= $_SESSION["permissions"]) {
                      echo '<option value="2">2</option>';
                   }
+                   if (3 == $_SESSION["permissions"]) {
+                       echo '<option value="2">2</option>';
+                       echo '<option value="3">3</option>';
+                   }
                   if (4 == $_SESSION["permissions"]) {
                       echo '<option value="2">2</option>';
                       echo '<option value="3">3</option>';

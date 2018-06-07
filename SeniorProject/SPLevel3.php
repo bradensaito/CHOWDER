@@ -1,8 +1,9 @@
 <?php
     include "authenticate.php";
+    $permission_level = 3;
+    permissionAuth($permission_level);
     $digs = mysqli_query($mysqli, "SELECT * FROM digs");
     ?>
-
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -15,6 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>CHOWDER</title>
 </head>
+
 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -45,6 +47,31 @@ $(document).ready(function(){
                   });
 </script>
 
+<!--jquery script for updating the section field-->
+<script type="text/javascript">
+$(document).ready(function(){
+                  $("#transect").change(function(){
+                                        var transectID = $(this).val();
+                                        if(transectID){
+                                        //alert(digID);
+                                        $.ajax({
+                                               type:'POST',
+                                               url:'ajax_transect.php',
+                                               data:'mid='+ transectID,
+                                               success:function(html){
+                                               $("#section").html(html);
+                                               //alert("we did it");
+                                               },error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                               alert(textStatus);
+                                               }
+                                               });
+                                        }else{
+                                        $("#section").html('<option value=""> Select transect first </option>');
+                                        }
+                                        });
+                  });
+</script>
+
 
 
 <body>
@@ -53,10 +80,10 @@ $(document).ready(function(){
         <h1>CHOWDER</h1>
     </div>
 
-
+    <!--main container-->
     <div class="container">
 
-        <form class="transect-form" action="endTransect.php" method="POST">
+        <form class="clam-form" action="addClam.php" method="POST">
             <div class="row">
                 <div class="center">
                     <p>Dig</p>
@@ -66,15 +93,15 @@ $(document).ready(function(){
                 <div class="center">
                     <select name="dig" id="dig">
 
-                    <option selected value = "dig0">Select Dig</option>
+                        <option selected value = "dig0">Select Dig</option>
 
-                    <?php
-    
-                        while($row = $digs->fetch_assoc())
-                        {
-                            echo '<option value="' . $row['id'].'" >' .$row['digdate'] .'</option>';
-                        }
-                    ?>
+                        <!--php script to populate the dig dropdown-->
+                        <?php
+                            while($row = $digs->fetch_assoc())
+                            {
+                                echo '<option value="' . $row['id'].'" >' .$row['digdate'] .'</option>';
+                            }
+                            ?>
 
 
                     </select>
@@ -87,7 +114,6 @@ $(document).ready(function(){
 
                 </div>
             </div>
-
             <div class="row">
                 <div class="center">
                     <p>Transect</p>
@@ -96,95 +122,58 @@ $(document).ready(function(){
             <div class="row">
                 <div class="center">
                     <select name="transect" id="transect">
-                    <option value="">Select dig first</option>
+                        <option value="">Select dig first</option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="center">
-                    <p>Make sure you are standing on the site!</p>
+                    <button type="button" onclick="location.href = 'addTransectPage.php';" id="addTransect">Start Transect</button>
+                    <button type="button" onclick="location.href = 'endTransectPage.php';" id="addTransect">End Transect</button>
                 </div>
             </div>
             <div class="row">
                 <div class="center">
-                    <button type="button" class="location" onclick="getLocation()">Get end location!</button>
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="center">
-                    <p>Ending Latitude:</p>
+                    <p>Section</p>
                 </div>
             </div>
             <div class="row">
                 <div class="center">
-                    <input type="text" name="curLat" id="curLat" placeholder="Latitude">
-
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="center">
-                    <p>Ending Longitude:</p>
+                    <select name="section" id="section">
+                        <option value="">Select transect first</option>
+                    </select>
                 </div>
             </div>
             <div class="row">
                 <div class="center">
-                    <input type="text" name="curLong" id="curLong" placeholder="Longitude">
+                    <button type="button" onclick="location.href = 'addSectionPage.php';" id="addSection">Add Section</button>
 
                 </div>
             </div>
-
-
-            <script type="text/javascript">
-            var long = document.getElementById("curLong");
-            var lat = document.getElementById("curLat");
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition, showError);
-                } else {
-                    long.innerHTML = "Geolocation is not supported by this browser.";
-                }
-            }
-
-            function showPosition(position) {
-                alert("Make sure you are standing in the correct spot!");
-                document.getElementById("curLong").value = position.coords.longitude;
-                document.getElementById("curLat").value = position.coords.latitude;
-            }
-
-            function showError(error) {
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        long.innerHTML = "User denied the request for Geolocation."
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        long.innerHTML = "Location information is unavailable."
-                        break;
-                    case error.TIMEOUT:
-                        long.innerHTML = "The request to get user location timed out."
-                        break;
-                    case error.UNKNOWN_ERROR:
-                        long.innerHTML = "An unknown error occurred."
-                        break;
-                }
-            }
-            </script>
-
+            <div class="row">
+                <div class="center">
+                    <p>Size</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="center">
+                    <input type="text" id="size" name="size" placeholder="Size (mm)">
+                </div>
+            </div>
             <br>
-
             <div class="row">
                 <div class="center">
                     <input type="submit" value="Submit">
                 </div>
             </div>
+
+            <br>
+
             <div class="row">
                 <div class="center">
-                    <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'">Cancel</button>
+                    <button type="button" class="newAccount" onclick="location.href='createAccount.php'">Create Account</a>
                 </div>
             </div>
-
         </form>
     </div>
 
