@@ -9,7 +9,7 @@
    
    function permissionAuth($level) {
       if (!isset($_SESSION["username"])) {
-         header("Location: SPLoginPage.html");
+         header("Location: index.html");
          exit();
       }
       if ($level > $_SESSION["permissions"]) {

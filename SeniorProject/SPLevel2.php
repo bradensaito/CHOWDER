@@ -81,6 +81,10 @@ $(document).ready(function(){
         <h1>C.H.O.W.D.E.R.</h1>
     </div>
 
+<div class="logout">
+<button type="button" class="cancelbtn" onclick="location.href = 'logout.php';" id="logout">Logout</button>
+</div>
+
     <!--main container-->
     <div class="container">
 
@@ -169,8 +173,6 @@ $(document).ready(function(){
                 <button type="button" class="newAccount" onclick="location.href='createAccount.php'">Create Account</a>
             </div>
         </div>
-
-        <br>
 
     </form>
 </div>
