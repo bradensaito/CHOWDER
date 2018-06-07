@@ -1,6 +1,6 @@
 <?php
    include "authenticate.php";
-   $permission_level = 4;
+   $permission_level = 3;
    permissionAuth($permission_level);
    $digs = mysqli_query($mysqli, "SELECT * FROM digs");
 ?>

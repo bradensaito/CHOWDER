@@ -19,7 +19,22 @@ $digthedug = "Added Dig!";
 
 echo "<script type= 'text/javascript'>\n";
 echo "alert('$digthedug');\n";
-echo "window.location=('SPPage1.php');\n";
+
+    switch ($_SESSION["permissions"]) {
+        case 1:
+            echo "window.location=('SPLevel1.php');\n";
+            break;
+        case 2:
+            echo "window.location=('SPLevel2.php');\n";
+            break;
+        case 3:
+            echo "window.location=('SPLevel3.php');\n";
+            break;
+        case 4:
+            echo "window.location=('SPPage1.php');\n";
+            break;
+    }
+    
 echo "</script>";
 
 exit();
