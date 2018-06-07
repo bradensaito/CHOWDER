@@ -50,7 +50,7 @@ $(document).ready(function(){
 <body>
 
     <div class="center">
-        <h1>CHOWDER</h1>
+        <h1>C.H.O.W.D.E.R.</h1>
     </div>
 
 

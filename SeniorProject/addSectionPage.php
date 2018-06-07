@@ -2,8 +2,9 @@
    include_once "authenticate.php";
    $permission_level = 4;
    permissionAuth($permission_level);
+   $date = date("Y-m-d");
    $transects = mysqli_query($mysqli, "SELECT * FROM sections");
-   $digs = mysqli_query($mysqli, "SELECT * FROM digs");
+   $digs = mysqli_query($mysqli, "SELECT * FROM digs WHERE digdate='$date'");
 ?>
 <!DOCTYPE html>
 
@@ -76,7 +77,7 @@ $(document).ready(function(){
 <body>
 
     <div class="center">
-        <h1>CHOWDER</h1>
+        <h1>C.H.O.W.D.E.R.</h1>
     </div>
 
 

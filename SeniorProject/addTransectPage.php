@@ -1,6 +1,7 @@
 <?php
     include "authenticate.php";
-    $digs = mysqli_query($mysqli, "SELECT * FROM digs");
+    $date = date("Y-m-d");
+    $digs = mysqli_query($mysqli, "SELECT * FROM digs WHERE digdate='$date'");
     ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 <body>
     
     <div class="center">
-        <h1>CHOWDER</h1>
+        <h1>C.H.O.W.D.E.R.</h1>
     </div>
 
 
