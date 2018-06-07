@@ -24,6 +24,28 @@
       $id = mysqli_num_rows(mysqli_query($mysqli, "SELECT id FROM `accounts`")) + 1;
       $update = "INSERT INTO `accounts` (`id`, `firstname`, `lastname`, `permissions`, `pass`, `username`) VALUES ('$id', '$firstname', '$lastname', '$permissions', '$password', '$username');";
       mysqli_query($mysqli, $update);
-      header("Location: index.html");
+       
+       echo "
+       <script type='text/javascript'>
+       \n";
+       echo "alert('Account made!');\n";
+       if (!isset($_SESSION["permissions"])) {
+           echo "window.location=('index.html');\n";
+       }
+       switch ($_SESSION["permissions"]) {
+           case 1:
+               echo "window.location=('SPLevel1.php');\n";
+               break;
+           case 2:
+               echo "window.location=('SPLevel2.php');\n";
+               break;
+           case 3:
+               echo "window.location=('SPLevel3.php');\n";
+               break;
+           case 4:
+               echo "window.location=('SPPage1.php');\n";
+               break;
+       }
+       echo "</script>";
    }
 ?>
