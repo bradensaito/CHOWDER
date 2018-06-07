@@ -44,6 +44,7 @@
                      echo '<option value="2">2</option>';
                   }
                   if (4 == $_SESSION["permissions"]) {
+                      echo '<option value="2">2</option>';
                       echo '<option value="3">3</option>';
                      echo '<option value="4">4</option>';
                   }
@@ -54,7 +55,7 @@
          </div>
 
          <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
+            <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'" >Cancel</button>
          </div>
       </form>
 

@@ -107,7 +107,7 @@ $(document).ready(function(){
             </div>
             <div class="row">
                 <div class="center">
-                    <button type="button" onclick="getLocation()">Get end location!</button>
+                    <button type="button" class="location" onclick="getLocation()">Get end location!</button>
 
                 </div>
             </div>

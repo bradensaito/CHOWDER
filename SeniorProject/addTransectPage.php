@@ -64,7 +64,7 @@
             </div>
             <div class="row">
                 <div class="center">
-                    <button type="button" onclick="getLocation()">Get start location!</button>
+                    <button type="button" class="location" onclick="getLocation()">Get start location!</button>
 
                 </div>
             </div>
@@ -147,7 +147,7 @@
             </div>
 			<div class="row">
                 <div class="center">
-                    <button type="button" class="cancelbtn" onclick="location.href = 'SPPage1.php';">Cancel</button>
+                    <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'">Cancel</button>
                 </div>
             </div>
 

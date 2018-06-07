@@ -166,6 +166,22 @@ $(document).ready(function(){
                 </div>
             </div>
 
+            <br>
+
+            <div class="row">
+                <div class="center">
+                    <button type="button" class="newAccount" onclick="location.href='createAccount.php'">Create Account</a>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+                <div class="center">
+                    <button type="button" class="download" onclick="location.href = 'download.php';" id="download">Download</button>
+                </div>
+            </div>
+
         </form>
     </div>
 

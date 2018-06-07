@@ -129,7 +129,7 @@ $(document).ready(function(){
                 <input type="submit" value="Submit">
             </div>
             <div class="row">
-                <button type="button" class="cancelbtn" onclick="location.href = 'SPPage1.php';">Cancel</button>
+                <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'">Cancel</button>
             </div>
 
         </form>
