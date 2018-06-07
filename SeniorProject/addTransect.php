@@ -2,6 +2,8 @@
 
 include_once "authenticate.php';
 
+//Starts a transect in the database from the location data and the dig gathered on the previous page
+    
 $dig = mysqli_real_escape_string($mysqli, $_POST['dig']);
 $latitude = mysqli_real_escape_string($mysqli, $_POST['curLat']);
 $longitude = mysqli_real_escape_string($mysqli, $_POST['curLong']);

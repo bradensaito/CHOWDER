@@ -1,7 +1,8 @@
-﻿<?php
+<?php
 
-include_once 'testLogin.php';
+include_once "authenticate.php";
 
+//Inserts a new clam into the database using the information provided from the main page
 $dig = mysqli_real_escape_string($mysqli, $_POST['dig']);
 $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
 $section = mysqli_real_escape_string($mysqli, $_POST['section']);

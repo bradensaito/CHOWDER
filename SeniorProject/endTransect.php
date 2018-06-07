@@ -2,6 +2,8 @@
     
     include_once "authenticate.php";
     
+    //Fills in the final information of the transect, the end time and end location
+    
     $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
     $latitude = mysqli_real_escape_string($mysqli, $_POST['curLat']);
     $longitude = mysqli_real_escape_string($mysqli, $_POST['curLong']);

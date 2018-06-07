@@ -8,7 +8,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<!--Main page for level 3 users-->
 
 <head>
 <meta charset="utf-8" />
@@ -90,7 +90,7 @@ $(document).ready(function(){
         <form class="clam-form" action="addClam.php" method="POST">
             <div class="row">
                 <div class="center">
-                    <p>Dig</p>
+                    <h3>Dig</h3>
                 </div>
             </div>
             <div class="row">
@@ -120,7 +120,7 @@ $(document).ready(function(){
             </div>
             <div class="row">
                 <div class="center">
-                    <p>Transect</p>
+                    <h3>Transect</h3>
                 </div>
             </div>
             <div class="row">
@@ -138,7 +138,7 @@ $(document).ready(function(){
             </div>
             <div class="row">
                 <div class="center">
-                    <p>Section</p>
+                    <h3>Section</h3>
                 </div>
             </div>
             <div class="row">
@@ -156,7 +156,7 @@ $(document).ready(function(){
             </div>
             <div class="row">
                 <div class="center">
-                    <p>Size</p>
+                    <h3>Size</h3>
                 </div>
             </div>
             <div class="row">

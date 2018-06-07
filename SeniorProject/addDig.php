@@ -1,7 +1,9 @@
-﻿<?php
+<?php
 
-include_once 'testLogin.php';
+include_once "authenticate.php";
 
+//Adds a new dig into the database according to data from the previous page
+//Only level 3 and 4 users can schedule a dig
 $date = mysqli_real_escape_string($mysqli, $_POST['date']);
 $location = mysqli_real_escape_string($mysqli, $_POST['location']);
 

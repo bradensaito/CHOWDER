@@ -1,7 +1,9 @@
-﻿<?php
+<?php
 
-include_once 'testLogin.php';
+include_once "authenticate.php";
 
+//Adds a section to the transect based on information gathered from the previous page
+    
 $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
 
 $query = $mysqli->query("SELECT * FROM sections WHERE tr_id = " .$_POST['transect']);

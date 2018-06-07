@@ -1,4 +1,5 @@
 <?php
+    //holds the session data and a function for permission check
    session_start();
    define('DB_NAME', 'chowder_test1');
    define('DB_USER', 'chowder_test1');

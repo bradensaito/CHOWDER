@@ -1,5 +1,6 @@
 <?php
    include "authenticate.php";
+    //Used to download the database
    $permission_level = 4;
    permissionAuth($permission_level);
    

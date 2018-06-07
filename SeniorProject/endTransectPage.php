@@ -1,13 +1,14 @@
 <?php
     include "authenticate.php";
-    $digs = mysqli_query($mysqli, "SELECT * FROM digs");
+    $date = date("Y-m-d");
+    $digs = mysqli_query($mysqli, "SELECT * FROM digs WHERE digdate='$date'");
     ?>
 
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<!--Gathers the information about the end of a transect-->
 
 <head>
 <meta charset="utf-8" />
@@ -59,7 +60,7 @@ $(document).ready(function(){
         <form class="transect-form" action="endTransect.php" method="POST">
             <div class="row">
                 <div class="center">
-                    <p>Dig</p>
+                    <h3>Dig</h3>
                 </div>
             </div>
             <div class="row">
@@ -80,17 +81,10 @@ $(document).ready(function(){
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="center">
-
-                    <button type="button" onclick="location.href = 'addDigPage.php';" id="addDig">Add Dig</button>
-
-                </div>
-            </div>
 
             <div class="row">
                 <div class="center">
-                    <p>Transect</p>
+                    <h3>Transect</h3>
                 </div>
             </div>
             <div class="row">
@@ -114,7 +108,7 @@ $(document).ready(function(){
 
             <div class="row">
                 <div class="center">
-                    <p>Ending Latitude:</p>
+                    <h3>Ending Latitude:</h3>
                 </div>
             </div>
             <div class="row">
@@ -126,7 +120,7 @@ $(document).ready(function(){
 
             <div class="row">
                 <div class="center">
-                    <p>Ending Longitude:</p>
+                    <h3>Ending Longitude:</h3>
                 </div>
             </div>
             <div class="row">

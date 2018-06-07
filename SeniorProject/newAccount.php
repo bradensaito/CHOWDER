@@ -1,4 +1,5 @@
 <?php
+    //create a new account
    include "authenticate.php";
    if (isset($_POST['username'])) {
       $firstname = stripslashes($_REQUEST['firstname']);

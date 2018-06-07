@@ -2,6 +2,8 @@
    session_start();
 ?>
 
+<!--Page used to create a new account, higher permission users can create accounts of different permission levels-->
+
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -50,7 +52,7 @@
                ?>
             </select>
 
-            <button type="submit">Create</button>
+            <button type="submit" class="login">Create</button>
          </div>
 
          <div class="container" style="background-color:#f1f1f1">

@@ -1,16 +1,16 @@
 <?php
    include_once "authenticate.php";
-   $permission_level = 4;
+   $permission_level = 2;
    permissionAuth($permission_level);
    $date = date("Y-m-d");
-   $transects = mysqli_query($mysqli, "SELECT * FROM sections");
+   //$transects = mysqli_query($mysqli, "SELECT * FROM sections");
    $digs = mysqli_query($mysqli, "SELECT * FROM digs WHERE digdate='$date'");
 ?>
 <!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<!--This page gathers the dig and transect of the section that is to be added-->
 
 <head>
     <meta charset="utf-8" />
@@ -23,6 +23,8 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> 
 <script src="jquery.min.js"></script>
+
+<!--The following scripts allow for the fields to populate themselves based on the previous selection-->
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -87,10 +89,12 @@ $(document).ready(function(){
 
 
             <div class="row">
-                <div class="col-25">
-                    <p>Dig</p>
+                <div class="center">
+                    <h3>Dig</h3>
                 </div>
-                <div class="col-75">
+            </div>
+            <div class="row">
+                <div class="center">
                     <select name="dig" id="dig">                       
                         <option selected value = "dig0">Select Dig</option>
 
@@ -107,30 +111,31 @@ $(document).ready(function(){
 
 
             <div class="row">
-                <div class="col-25">
-                    <p>Transect</p>
+                <div class="center">
+                    <h3>Transect</h3>
                 </div>
-                <div class="col-75">
+            </div>
+            <div class="row">
+                <div class="center">
                     <select name="transect" id="transect">
                         
-                        <option selected value = "transect0">Select Transect</option>
-
-                        <?php                        
-                        while($row = $transects->fetch_assoc())
-                        {
-                            echo '<option value="' . $row['id'].'" >' .$row['id'] .'</option>';
-                        }
-                        ?>
+                        <option value="">Select dig first</option>
                         
                     </select>
                 </div>
             </div>
+            <br>
+            <br>
             
             <div class="row">
-                <input type="submit" value="Submit">
+                <div class="center">
+                    <input type="submit" value="Submit">
+                </div>
             </div>
             <div class="row">
-                <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'">Cancel</button>
+                <div class="center">
+                    <button type="button" class="cancelbtn" onclick="location.href='javascript:history.go(-1)'">Cancel</button>
+                </div>
             </div>
 
         </form>

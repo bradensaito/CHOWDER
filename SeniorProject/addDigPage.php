@@ -6,9 +6,9 @@
 ?>
 <!DOCTYPE html>
 
+<!--This page gathers the necessary information about a dig from the user-->
+
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
-
 
 <head>
     <meta charset="utf-8" />
@@ -29,7 +29,7 @@
         <form class="dig-form" action="addDig.php" method="POST">
             <div class="row">
                 <div class="center">
-                    <p>Date</p>
+                    <h3>Date</h3>
                 </div>
             </div>
             <div class="row">
@@ -39,7 +39,7 @@
             </div>
             <div class="row">
                 <div class="center">
-                    <p>Location</p>
+                    <h3>Location</h3>
                 </div>
             </div>
             <div class="row">
@@ -47,7 +47,10 @@
                     <input type="text" id="location" name="location" placeholder="Location">
                 </div>
             </div>
-          
+
+            <br>
+            <br>
+
             <div class="row">
                 <div class="center">
                     <input type="submit" value="Submit">

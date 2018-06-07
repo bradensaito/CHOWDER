@@ -1,5 +1,5 @@
 <?php
-    include "authenticate.php";
+    include_once "authenticate.php";
     $date = date("Y-m-d");
     $digs = mysqli_query($mysqli, "SELECT * FROM digs WHERE digdate='$date'");
     ?>
@@ -8,7 +8,7 @@
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
-
+<!--This page gathers the location of the start of the transect and the dig that the transect is to be a part of-->
 
 <head>
     <meta charset="utf-8" />
@@ -30,7 +30,7 @@
         <form class="transect-form" action="addTransect.php" method="POST">
             <div class="row">
                 <div class="center">
-                    <p>Dig</p>
+                    <h3>Dig</h3>
                 </div>
             </div>
             <div class="row">
@@ -51,13 +51,7 @@
                     </select>
                 </div>
             </div>
-            <div class="row">
-                <div class="center">
-               
-                    <button type="button" onclick="location.href = 'addDigPage.php';" id="addDig">Add Dig</button>
-
-                </div>
-            </div>
+        
             <div class="row">
                 <div class="center">
                     <p>Make sure you are standing on the site!</p>
@@ -72,7 +66,7 @@
 
             <div class="row">
                 <div class="center">
-                    <p>Starting Latitude:</p>
+                    <h3>Starting Latitude:</h3>
                 </div>
             </div>
             <div class="row">
@@ -84,7 +78,7 @@
 
             <div class="row">
                 <div class="center">
-                    <p>Starting Longitude:</p>
+                    <h3>Starting Longitude:</h3>
                 </div>
             </div>
             <div class="row">
@@ -133,7 +127,7 @@
 
             <div class="row">
                 <div class="center">
-                    <input type="checkbox" name="orientation" value="Yes">Away from water?<br>
+                    <input type="checkbox" name="orientation" value="Yes">Moving away from water?<br>
 
             <br>
 

@@ -1,5 +1,8 @@
 <?php
    include "authenticate.php";
+    
+    //Checks for permissions of the user and directs them to the according main page
+    
    if (isset($_POST['uname'])) {
       $username = stripslashes($_REQUEST['uname']);
       $username = mysqli_real_escape_string($mysqli,$username);
