@@ -7,7 +7,7 @@
    $csv_filename = 'db'.date('Y-m-d').'.csv';
    $csv_data = '';
    
-   $query = mysqli_query($mysqli, 'select accounts.id, accounts.firstname, accounts.lastname, accounts.username, digs.id, digs.digdate, digs.location, transects.id, transects.starttime, transects.endtime, transects.startlat, transects.endlat, transects.startlong, transects.endlong, transects.orientation, sections.id, clams.id, clams.size from accounts join clams join digs join sections join transects on transects.dig_id = digs.id and sections.transect_id = transects.id and clams.section_id = sections.id and clams.transect_id = transects.id and clams.account_id = accounts.id');
+   $query = mysqli_query($mysqli, 'select accounts.id, accounts.firstname, accounts.lastname, accounts.username, digs.id, digs.digdate, digs.location, groups.id, transects.id, transects.starttime, transects.endtime, transects.startlat, transects.endlat, transects.startlong, transects.endlong, transects.orientation, sections.id, clams.id, clams.size from accounts join clams join digs join `groups` join sections join transects on `groups`.dig_id = digs.id and `groups`.account_id = accounts.id and transects.dig_id = digs.id and transects.group_id = `groups`.id and sections.transect_id = transects.id and clams.section_id = sections.id and clams.transect_id = transects.id and clams.account_id = accounts.id');
    
    $field = mysqli_num_fields($query);
 

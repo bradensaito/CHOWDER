@@ -8,12 +8,14 @@
       $username = mysqli_real_escape_string($mysqli,$username);
       $password = stripslashes($_REQUEST['psw']);
       $password = mysqli_real_escape_string($mysqli,$password);
-      $query = "SELECT permissions FROM `accounts` WHERE username='$username'and pass='".hash('sha512',$password)."'";
+      $query = "SELECT id, permissions FROM `accounts` WHERE username='$username'and pass='".hash('sha512',$password)."'";
       $result = mysqli_query($mysqli, $query) or die(mysqli_error($mysqli));
       $rows = mysqli_num_rows($result);
-      if($rows==1){
+      if($rows>0){
+         $assoc = mysqli_fetch_assoc($result);
          $_SESSION['username'] = $username;
-         $_SESSION['permissions'] = mysqli_fetch_assoc($result)['permissions'];
+         $_SESSION['permissions'] = $assoc['permissions'];
+         $_SESSION['id'] = $assoc['id'];
          switch ($_SESSION["permissions"]) {
             case 1:
                header("Location: SPLevel1.php");

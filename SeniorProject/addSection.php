@@ -6,9 +6,10 @@ include_once "authenticate.php";
     
 $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
 
-$query = $mysqli->query("SELECT * FROM sections WHERE tr_id = " .$_POST['transect']);
+$query = $mysqli->query("SELECT * FROM sections WHERE transect_id = " .$_POST['transect']);
 $rowCount = $query->num_rows;
 $rowCount++;
+
 
 $in = "INSERT INTO sections (id, transect_id) VALUES ('$rowCount', '$transect');";
 

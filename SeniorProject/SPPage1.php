@@ -37,11 +37,41 @@ $(document).ready(function(){
                     $("#transect").html(html);
                     //alert("we did it");
                 },error: function(XMLHttpRequest, textStatus, errorThrown) {
-    alert(textStatus);
+    //alert(textStatus);
+}
+            });
+                     
+                     
+                     
+                     
+                     
+        }else{
+            $("#transect").html('<option value=""> Select dig2 first </option>');
+        }
+    });
+});
+</script>
+
+<!--jquery script for updating the section field-->
+<script type="text/javascript">
+$(document).ready(function(){
+    $("#dig").change(function(){
+        var transectID = $(this).val();
+        if(transectID){
+            //alert(digID);
+            $.ajax({
+                type:'POST',
+                url:'ajax_transect.php',
+                data:'mid='+ transectID,
+                success:function(html){
+                    $("#section").html(html);
+                    //alert("we did it");
+                },error: function(XMLHttpRequest, textStatus, errorThrown) {
+   // alert(textStatus);
 }
             });
         }else{
-            $("#transect").html('<option value=""> Select dig2 first </option>');
+            $("#section").html('<option value=""> Select transect first </option>');
         }
     });
 });
@@ -59,10 +89,10 @@ $(document).ready(function(){
                 url:'ajax_transect.php',
                 data:'mid='+ transectID,
                 success:function(html){
-                    $("#section").html(html);
-                    //alert("we did it");
+                   $("#section").html(html);
+                   //alert("we did it");
                 },error: function(XMLHttpRequest, textStatus, errorThrown) {
-    alert(textStatus);
+    // alert(textStatus);
 }
             });
         }else{

@@ -8,7 +8,13 @@ $transect = mysqli_real_escape_string($mysqli, $_POST['transect']);
 $section = mysqli_real_escape_string($mysqli, $_POST['section']);
 $size = mysqli_real_escape_string($mysqli, $_POST['size']);
 
-$in = "INSERT INTO clams (section, transect_id, size) VALUES ('$section', '$transect', '$size');";
+$query = $mysqli->query("SELECT id FROM clams");
+$rowCount = $query->num_rows;
+$rowCount++;
+$id = $_SESSION['id'];
+    
+    print($id);
+$in = "INSERT INTO clams (id, section_id, transect_id, account_id, size) VALUES ('$rowCount', '$section', '$transect', '$id', '$size');";
 
 mysqli_query($mysqli, $in);
 

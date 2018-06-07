@@ -48,6 +48,32 @@ $(document).ready(function(){
                   });
 </script>
 
+
+<!--jquery script for updating the section field-->
+<script type="text/javascript">
+$(document).ready(function(){
+                  $("#dig").change(function(){
+                                   var transectID = $(this).val();
+                                   if(transectID){
+                                   //alert(digID);
+                                   $.ajax({
+                                          type:'POST',
+                                          url:'ajax_transect.php',
+                                          data:'mid='+ transectID,
+                                          success:function(html){
+                                          $("#section").html(html);
+                                          //alert("we did it");
+                                          },error: function(XMLHttpRequest, textStatus, errorThrown) {
+                                          // alert(textStatus);
+                                          }
+                                          });
+                                   }else{
+                                   $("#section").html('<option value=""> Select transect first </option>');
+                                   }
+                                   });
+                  });
+</script>
+
 <!--jquery script for updating the section field-->
 <script type="text/javascript">
 $(document).ready(function(){
